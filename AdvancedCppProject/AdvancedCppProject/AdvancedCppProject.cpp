@@ -2,46 +2,37 @@
 #include <iostream>
 using namespace std;
 
-void mightGoWrong()
+void GoesWrong()
 {
-    bool bError1 = false;
-    bool bError2 = true;
+    bool bError1Detected = false;
+    bool bError2Detected = true;
 
-    if (bError1)
+    if (bError1Detected)
     {
-        throw "Something went wrong.";
+        throw bad_alloc();
     }
-    if (bError2)
-    {
-        throw string("Something else went wrong.");
-    }
-}
 
-void usesMightGoWrong()
-{
-    mightGoWrong();
+    if (bError2Detected)
+    {
+        throw exception();
+    }
 }
 
 int main()
 {
     try
     {
-        usesMightGoWrong();
+        GoesWrong();
     }
-    catch (int e)
+    catch (bad_alloc &e)
     {
-        cout << "Error code : " << e << endl;
+        cout << "Catching bad alloc : " << e.what() << endl;
     }
-    catch (char const* e)
+    catch (exception &e)
     {
-        cout << "Error message : " << e << endl;
-    }
-    catch (string &e)
-    {
-        cout << "String error message : " << e << endl;
+        cout << "Catching exception : " << e.what() << endl;
     }
 
-    cout << "Still running" << endl;
 
     return 0;
 }
