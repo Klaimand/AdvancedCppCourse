@@ -1,35 +1,55 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
+
+
+#pragma pack(push, 1)
+struct Person
+{
+    char name[50];
+    int age;
+    double height;
+};
+#pragma pack(pop)
 
 int main()
 {
-    string fileName = "stats.txt";
-    ifstream input;
+    Person someone = {"Frodo", 220, 0.8f};
 
-    input.open(fileName);
+    string fileName = "test.bin";
 
-    if (!input.is_open())
+    //write
+    ofstream outputFile;
+
+    outputFile.open(fileName, ios::binary);
+
+    if (!outputFile.is_open())
         return 1;
 
-    while (input)
-    {
-        string line;
+    outputFile.write(reinterpret_cast<char*>(&someone), sizeof(Person));
 
-        getline(input, line, ':');
+    outputFile.close();
 
-        int population = 0;
 
-        input >> population;
 
-        input >> ws;
 
-        cout << "'" << line << "' -- '" << population << "'" << endl;
-    }
+    //read
 
-    input.close();
+    Person someoneElse;
+
+    ifstream inputFile;
+
+    inputFile.open(fileName, ios::binary);
+
+    if (!inputFile.is_open())
+        return 1;
+
+    inputFile.read(reinterpret_cast<char*>(&someoneElse), sizeof(Person));
+
+    inputFile.close();
+
+    cout << someoneElse.name << ", " << someoneElse.age << ", " << someoneElse.height << endl;
 
     return 0;
 }
