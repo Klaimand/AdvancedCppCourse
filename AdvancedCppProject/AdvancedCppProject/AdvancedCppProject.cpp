@@ -1,38 +1,35 @@
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
-
-void GoesWrong()
-{
-    bool bError1Detected = false;
-    bool bError2Detected = true;
-
-    if (bError1Detected)
-    {
-        throw bad_alloc();
-    }
-
-    if (bError2Detected)
-    {
-        throw exception();
-    }
-}
 
 int main()
 {
-    try
+    string fileName = "stats.txt";
+    ifstream input;
+
+    input.open(fileName);
+
+    if (!input.is_open())
+        return 1;
+
+    while (input)
     {
-        GoesWrong();
-    }
-    catch (bad_alloc &e)
-    {
-        cout << "Catching bad alloc : " << e.what() << endl;
-    }
-    catch (exception &e)
-    {
-        cout << "Catching exception : " << e.what() << endl;
+        string line;
+
+        getline(input, line, ':');
+
+        int population = 0;
+
+        input >> population;
+
+        input >> ws;
+
+        cout << "'" << line << "' -- '" << population << "'" << endl;
     }
 
+    input.close();
 
     return 0;
 }

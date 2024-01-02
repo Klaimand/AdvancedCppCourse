@@ -1,0 +1,3 @@
+Population UK: 64000000
+Population France: 66400000
+Population Hungary: 12000000
