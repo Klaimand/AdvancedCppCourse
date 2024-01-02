@@ -1,55 +1,46 @@
 
 #include <iostream>
-#include <fstream>
+#include <list>
 using namespace std;
 
 
-#pragma pack(push, 1)
-struct Person
-{
-    char name[50];
-    int age;
-    double height;
-};
-#pragma pack(pop)
-
 int main()
 {
-    Person someone = {"Frodo", 220, 0.8f};
+    list<int> numbers;
 
-    string fileName = "test.bin";
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(3);
+    numbers.push_front(0);
+    
+    list<int>::iterator it = numbers.begin();
+    it++;
+    numbers.insert(it, 100);
+    cout << "Element : " << *it << endl;
 
-    //write
-    ofstream outputFile;
+    list<int>::iterator eraseIt = numbers.begin();
+    eraseIt++;
+    eraseIt = numbers.erase(eraseIt);
+    cout << "Element : " << *eraseIt << endl;
 
-    outputFile.open(fileName, ios::binary);
+    for (list<int>::iterator it = numbers.begin(); it != numbers.end(); it++)
+    {
+        if (*it == 2)
+        {
+            numbers.insert(it, 1234);
+        }
+        
+        if (*it == 1)
+        {
+            it = numbers.erase(it);
+            it--;
+        }
+    }
 
-    if (!outputFile.is_open())
-        return 1;
-
-    outputFile.write(reinterpret_cast<char*>(&someone), sizeof(Person));
-
-    outputFile.close();
-
-
-
-
-    //read
-
-    Person someoneElse;
-
-    ifstream inputFile;
-
-    inputFile.open(fileName, ios::binary);
-
-    if (!inputFile.is_open())
-        return 1;
-
-    inputFile.read(reinterpret_cast<char*>(&someoneElse), sizeof(Person));
-
-    inputFile.close();
-
-    cout << someoneElse.name << ", " << someoneElse.age << ", " << someoneElse.height << endl;
+    for (list<int>::iterator it = numbers.begin(); it != numbers.end(); it++)
+    {
+        cout << *it << endl;
+    }
 
     return 0;
 }
