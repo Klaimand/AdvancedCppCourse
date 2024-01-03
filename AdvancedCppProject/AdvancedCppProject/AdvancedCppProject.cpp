@@ -1,45 +1,59 @@
 
 #include <iostream>
-#include <list>
+#include <map>
 using namespace std;
 
+class Person
+{
+private:
+    string name;
+    int age;
+
+public:
+
+    Person() = default;
+
+    Person(const Person &other)
+    {
+        name = other.name;
+        age = other.age;
+    }
+
+    Person(string name_, int age_)
+    {
+        name = name_;
+        age = age_;
+    }
+
+    void print() const
+    {
+        cout << name << " : " << age << flush;
+    }
+
+    bool operator < (const Person& other) const
+    {
+        if (name == other.name)
+            return age < other.age;
+
+        return name < other.name;
+    }
+};
 
 int main()
 {
-    list<int> numbers;
 
-    numbers.push_back(1);
-    numbers.push_back(2);
-    numbers.push_back(3);
-    numbers.push_front(0);
+    map<Person, int> people;
     
-    list<int>::iterator it = numbers.begin();
-    it++;
-    numbers.insert(it, 100);
-    cout << "Element : " << *it << endl;
+    people[Person("Mike", 40)] = 40;
+    people[Person("Mike", 444)] = 123;
+    people[Person("Sue", 30)] = 30;
+    people[Person("Raj", 20)] = 20;
 
-    list<int>::iterator eraseIt = numbers.begin();
-    eraseIt++;
-    eraseIt = numbers.erase(eraseIt);
-    cout << "Element : " << *eraseIt << endl;
-
-    for (list<int>::iterator it = numbers.begin(); it != numbers.end(); it++)
+    for (map<Person, int>::iterator it = people.begin(); it != people.end(); it++)
     {
-        if (*it == 2)
-        {
-            numbers.insert(it, 1234);
-        }
-        
-        if (*it == 1)
-        {
-            it = numbers.erase(it);
-            it--;
-        }
-    }
-
-    for (list<int>::iterator it = numbers.begin(); it != numbers.end(); it++)
-    {
-        cout << *it << endl;
+        cout << it->second << " : " << flush;
+        it->first.print();
+        cout << endl;
     }
 
     return 0;
