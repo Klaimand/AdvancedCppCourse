@@ -1,60 +1,50 @@
 
 #include <iostream>
-#include <map>
 using namespace std;
 
-class Person
+class Test
 {
 private:
+    int id;
     string name;
-    int age;
 
 public:
+    Test() = default;
 
-    Person() = default;
-
-    Person(const Person &other)
+    Test(int id_, string name_)
     {
-        name = other.name;
-        age = other.age;
-    }
-
-    Person(string name_, int age_)
-    {
+        id = id_;
         name = name_;
-        age = age_;
     }
 
-    void print() const
+    Test& operator = (const Test& other)
     {
-        cout << name << " : " << age << flush;
+        id = other.id;
+        name = other.name;
+
+        return *this;
     }
 
-    bool operator < (const Person& other) const
+    Test(const Test& other)
     {
-        if (name == other.name)
-            return age < other.age;
+        id = other.id;
+        name = other.name;
+    }
 
-        return name < other.name;
+    friend ostream& operator << (ostream& out, const Test& test)
+    {
+        out << test.id << " : " << test.name;
+        return out;
     }
 };
 
 int main()
 {
 
-    map<Person, int> people;
-    
-    people[Person("Mike", 40)] = 40;
-    people[Person("Mike", 444)] = 123;
-    people[Person("Sue", 30)] = 30;
-    people[Person("Raj", 20)] = 20;
+    Test test1(10, "Mike");
+    Test test2(20, "Bob");
 
-    for (map<Person, int>::iterator it = people.begin(); it != people.end(); it++)
-    {
-        cout << it->second << " : " << flush;
-        it->first.print();
-        cout << endl;
-    }
+    cout << test1 << endl;
 
     return 0;
 }
