@@ -1,50 +1,43 @@
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-class Test
+bool match(string test)
 {
-private:
-    int id;
-    string name;
+    return test.size() == 3;
+}
 
-public:
-    Test() = default;
-
-    Test(int id_, string name_)
+template<typename T, typename K>
+int countIf(T begin, T end, bool (*fn)(K))
+{
+    int i = 0;
+    for (T it = begin; it != end; it++)
     {
-        id = id_;
-        name = name_;
+        if (fn(*it))
+            i++;
     }
 
-    Test& operator = (const Test& other)
-    {
-        id = other.id;
-        name = other.name;
-
-        return *this;
-    }
-
-    Test(const Test& other)
-    {
-        id = other.id;
-        name = other.name;
-    }
-
-    friend ostream& operator << (ostream& out, const Test& test)
-    {
-        out << test.id << " : " << test.name;
-        return out;
-    }
-};
+    return i;
+}
 
 int main()
 {
 
-    Test test1(10, "Mike");
-    Test test2(20, "Bob");
+    vector<string> texts;
+    texts.push_back("one");
+    texts.push_back("two");
+    texts.push_back("three");
+    texts.push_back("two");
+    texts.push_back("four");
+    //texts.push_back("two");
+    texts.push_back("three");
 
-    cout << test1 << endl;
+    //cout << match("oned") << endl;
+
+    //cout << count_if(texts.begin(), texts.end(), match) << endl;
+    cout << countIf(texts.begin(), texts.end(), match) << endl;
 
     return 0;
 }

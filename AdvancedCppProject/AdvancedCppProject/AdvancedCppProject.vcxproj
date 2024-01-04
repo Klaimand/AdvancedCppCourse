@@ -128,9 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdvancedCppProject.cpp" />
+    <ClCompile Include="Complex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="stats.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Complex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
