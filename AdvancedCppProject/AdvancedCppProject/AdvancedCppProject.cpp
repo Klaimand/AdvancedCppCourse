@@ -1,15 +1,26 @@
 
 #include <iostream>
-#include <typeinfo>
+#include "Ring.h"
 using namespace std;
+
+
+
 
 int main()
 {
 
-    string value;
+    Ring<string> textRing(3);
 
-    cout << typeid(value).name() << endl;
+    textRing.Add("one");
+    textRing.Add("two");
+    textRing.Add("three");
+    textRing.Add("four");
+    textRing.Add("five");
 
+    for (int i = 0; i < textRing.Size(); i++)
+    {
+        cout << textRing.Get(i) << endl;
+    }
 
     return 0;
 }
