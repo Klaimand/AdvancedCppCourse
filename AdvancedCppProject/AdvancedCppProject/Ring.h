@@ -33,7 +33,7 @@ public:
 		curIndex = curIndex % size;
 	}
 
-	T Get(const int &index) const
+	T &Get(const int &index) const
 	{
 		return items[index];
 	}
