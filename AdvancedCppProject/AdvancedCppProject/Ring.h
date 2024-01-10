@@ -9,7 +9,7 @@ class Ring
 	int curIndex = 0;
 	int size = 0;
 
-	std::vector<T> items;
+	T *items;
 
 public:
 	Ring() = default;
@@ -17,19 +17,18 @@ public:
 	Ring(int size_)
 	{
 		size = size_;
+		items = new T[size];
 	}
 
+	~Ring()
+	{
+		delete [] items;
+	}
+	
 	void Add(const T &obj)
 	{
-		if (items.size() < size)
-		{
-			items.push_back(obj);
-		}
-		else
-		{
-			items[curIndex] = obj;
-		}
-
+		items[curIndex] = obj;
+		
 		curIndex++;
 		curIndex = curIndex % size;
 	}

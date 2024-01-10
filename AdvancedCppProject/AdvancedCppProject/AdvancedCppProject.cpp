@@ -16,6 +16,8 @@ int main()
     textRing.Add("three");
     textRing.Add("four");
     textRing.Add("five");
+    textRing.Add("six");
+    textRing.Add("seven");
 
     for (int i = 0; i < textRing.Size(); i++)
     {
