@@ -1,20 +1,23 @@
 
 #include <iostream>
-using namespace std;
+#include "Bitmap.h"
 
-void test(void (*f)())
-{
-    f();
-}
+using namespace std;
 
 int main()
 {
 
-    auto func = []() { cout << "Hello" << endl; };
+    Bitmap bitmap(800, 600);
 
-    func();
+    if (bitmap.write("test.bmp"))
+    {
+        cout << "Finished" << endl;
+    }
+    else
+    {
+        cout << "Problem" << endl;
+    }
 
-    test(func);
 
     return 0;
 }

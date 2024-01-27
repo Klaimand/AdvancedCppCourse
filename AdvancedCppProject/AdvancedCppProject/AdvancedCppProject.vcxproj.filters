@@ -18,18 +18,18 @@
     <ClCompile Include="AdvancedCppProject.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Complex.cpp">
+    <ClCompile Include="Bitmap.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="stats.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Complex.h">
+    <ClInclude Include="BitmapFileHeader.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Ring.h">
+    <ClInclude Include="BitmapInfoHeader.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
