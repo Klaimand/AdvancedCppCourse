@@ -5,7 +5,7 @@
 #pragma pack(2)
 struct BitmapInfoHeader
 {
-	int32_t headerSize = 400;
+	int32_t headerSize = 40;
 	int32_t width;
 	int32_t height;
 	int16_t planes = 1;

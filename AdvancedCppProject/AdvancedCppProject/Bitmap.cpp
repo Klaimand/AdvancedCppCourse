@@ -12,7 +12,7 @@ Bitmap::Bitmap(int width, int height)
 
 	for (int i = 0; i < width * height * 3; i++)
 	{
-		m_pPixels[i] = 1;
+		m_pPixels[i] = 0;
 	}
 }
 
@@ -49,5 +49,10 @@ bool Bitmap::write(string filename)
 
 void Bitmap::setPixel(int x, int y, uint8_t r, uint8_t g, uint8_t b)
 {
+	uint8_t* pPixel = m_pPixels.get();
+	pPixel += y * m_width * 3 + x * 3;
 
+	pPixel[0] = b;
+	pPixel[1] = g;
+	pPixel[2] = r;
 }
