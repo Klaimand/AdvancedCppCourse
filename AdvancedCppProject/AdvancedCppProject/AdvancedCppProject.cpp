@@ -1,26 +1,20 @@
 
 #include <iostream>
-#include "Ring.h"
 using namespace std;
 
-
-
+void test(void (*f)())
+{
+    f();
+}
 
 int main()
 {
 
-    Ring<string> textRing(3);
+    auto func = []() { cout << "Hello" << endl; };
 
-    textRing.Add("one");
-    textRing.Add("two");
-    textRing.Add("three");
-    textRing.Add("four");
-    textRing.Add("five");
+    func();
 
-    for (int i = 0; i < textRing.Size(); i++)
-    {
-        cout << textRing.Get(i) << endl;
-    }
+    test(func);
 
     return 0;
 }

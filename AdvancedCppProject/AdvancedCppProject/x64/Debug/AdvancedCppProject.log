@@ -1,2 +1,3 @@
 ﻿  AdvancedCppProject.cpp
-  AdvancedCppProject.vcxproj -> D:\Documents\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(734,5): error MSB6006: "CL.exe" exited with code 2.
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\AdvancedCppProject.cpp(9,52): error C3313: 'func': variable cannot have the type 'void'
