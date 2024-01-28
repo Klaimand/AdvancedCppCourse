@@ -1,2 +1,3 @@
 ﻿  AdvancedCppProject.cpp
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\AdvancedCppProject.cpp(71,28): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
   AdvancedCppProject.vcxproj -> D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
