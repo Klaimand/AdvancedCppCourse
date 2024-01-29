@@ -1,3 +1,7 @@
 ﻿  AdvancedCppProject.cpp
-D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\AdvancedCppProject.cpp(71,28): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-  AdvancedCppProject.vcxproj -> D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
+  Bitmap.cpp
+D:\Documents\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\Bitmap.cpp(2,1): warning C4103: alignment changed after including header, may be due to missing #pragma pack(pop)
+  FractalCreator.cpp
+D:\Documents\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(69,29): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+  Generating Code...
+  AdvancedCppProject.vcxproj -> D:\Documents\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
