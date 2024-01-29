@@ -1,28 +1,37 @@
 
 #include <iostream>
-#include "Ring.h"
+#include <memory>
 using namespace std;
 
 
+class Test
+{
+public:
+    Test()
+    {
+        cout << "created" << endl;
+    }
 
+    void greet()
+    {
+        cout << "Hello" << endl;
+    }
+
+    ~Test()
+    {
+        cout << "Delete" << endl;
+    }
+};
 
 int main()
 {
 
-    Ring<string> textRing(3);
+    shared_ptr<Test> pTest = make_shared<Test>();
 
-    textRing.Add("one");
-    textRing.Add("two");
-    textRing.Add("three");
-    textRing.Add("four");
-    textRing.Add("five");
-    textRing.Add("six");
-    textRing.Add("seven");
 
-    for (int i = 0; i < textRing.Size(); i++)
-    {
-        cout << textRing.Get(i) << endl;
-    }
+
+    cout << "Finished" << endl;
+
 
     return 0;
 }

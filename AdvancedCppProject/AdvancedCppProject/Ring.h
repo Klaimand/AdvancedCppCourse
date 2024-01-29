@@ -12,6 +12,8 @@ class Ring
 	T *items;
 
 public:
+	class iterator;
+	
 	Ring() = default;
 
 	Ring(int size_)
@@ -43,5 +45,55 @@ public:
 		return size;
 	}
 
+	iterator begin()
+	{
+		return iterator(0, *this);
+	}
+
+	iterator end()
+	{
+		return iterator(size, *this);
+	}
+
 };
 
+template<class T>
+class Ring<T>::iterator
+{
+private:
+	int index;
+	Ring ring;
+
+	
+public:
+	iterator(const int &index_, Ring<T> &ring_)
+	{
+		index = index_;
+		ring = ring_;
+	}
+
+	iterator &operator++(int)
+	{
+		index++;
+
+		return *this;
+	}
+
+	iterator &operator++()
+	{
+		index++;
+
+		return *this;
+	}
+
+	T &operator*()
+	{
+		return ring.Get(index);
+	}
+
+	bool operator!=(const iterator &other) const
+	{
+		return other.index != index;
+	}
+	
+};
