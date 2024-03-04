@@ -44,8 +44,34 @@ void FractalCreator::calculateTotalIterations()
     }
 }
 
+void FractalCreator::calculateRangeTotals()
+{
+    int rangeIndex = 0;
+
+    for (int i = 0; i < Mandelbrot::MAX_ITERATIONS; i++)
+    {
+        int pixels = m_histogram[i];
+
+        if (i >= m_ranges[rangeIndex + 1])
+        {
+            rangeIndex++;
+        }
+
+        m_rangeTotals[rangeIndex] += pixels;
+    }
+
+    for (int value : m_rangeTotals)
+    {
+        cout << "Range totals : " << value << endl;
+    }
+}
+
 void FractalCreator::drawFractal()
 {
+
+    RGB startColor(0, 0, 0);
+    RGB endColor(0, 255, 0);
+    RGB colorDiff = endColor - startColor;
 
     for (int y = 0; y < m_height; y++)
     {
@@ -57,7 +83,7 @@ void FractalCreator::drawFractal()
 
             int iterations = m_fractal[x + y * m_width];
 
-            if (iterations != Mandelbrot::MAX_ITERATIONS)
+            if (iterations < Mandelbrot::MAX_ITERATIONS)
             {
                 double hue = 0.0;
                 for (int i = 0; i < iterations + 1; i++)
@@ -66,7 +92,10 @@ void FractalCreator::drawFractal()
                 }
 
                 //green = pow(255, hue);
-                green = hue * 255;
+                //green = hue * 255;
+                red = startColor.r + colorDiff.r * hue;
+                green = startColor.g + colorDiff.g * hue;
+                blue = startColor.b + colorDiff.b * hue;
 
             }
 
@@ -81,7 +110,32 @@ void FractalCreator::addZoom(const Zoom& zoom)
 	m_zoomList.add(zoom);
 }
 
+void FractalCreator::addRange(const double& rangeEnd, const RGB& rgb)
+{
+    m_ranges.push_back(rangeEnd * Mandelbrot::MAX_ITERATIONS);
+    m_colors.push_back(rgb);
+
+
+    if (m_bGotFirstRange)  m_rangeTotals.push_back(0);
+
+    m_bGotFirstRange = true;
+}
+
 void FractalCreator::writeBitmap(string name)
 {
     m_bitmap.write(name);
+}
+
+void FractalCreator::run(string name)
+{
+    //addZoom(Zoom(295, m_height - 202, 0.1));
+    //addZoom(Zoom(312, m_height - 304, 0.1));
+
+    calculateIterations();
+    calculateTotalIterations();
+    calculateRangeTotals();
+    drawFractal();
+
+    writeBitmap(name);
+
 }

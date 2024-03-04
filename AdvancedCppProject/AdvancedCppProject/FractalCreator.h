@@ -7,6 +7,9 @@
 #include "Bitmap.h"
 #include "ZoomList.h"
 #include "Mandelbrot.h"
+#include "RGB.h"
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -26,17 +29,31 @@ class FractalCreator
 
 	int m_total = 0;
 
+	vector<int> m_ranges;
+	vector<RGB> m_colors;
+	vector<int> m_rangeTotals;
+
+	bool m_bGotFirstRange = false;
+
+
 public:
 	FractalCreator(int width, int height);
+	void run(string name);
+	void addZoom(const Zoom& zoom);
+	void addRange(const double& rangeEnd, const RGB& rgb);
+
+private:
 
 	void calculateIterations();
 
 	void calculateTotalIterations();
 
+	void calculateRangeTotals();
+
 	void drawFractal();
 
-	void addZoom(const Zoom& zoom);
 
 	void writeBitmap(string name);
+
 };
 

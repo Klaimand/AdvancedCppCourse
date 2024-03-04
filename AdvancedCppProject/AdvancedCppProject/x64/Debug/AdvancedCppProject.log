@@ -1,7 +1,10 @@
-﻿  AdvancedCppProject.cpp
-  Bitmap.cpp
-D:\Documents\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\Bitmap.cpp(2,1): warning C4103: alignment changed after including header, may be due to missing #pragma pack(pop)
-  FractalCreator.cpp
-D:\Documents\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(69,29): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-  Generating Code...
-  AdvancedCppProject.vcxproj -> D:\Documents\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
+﻿  FractalCreator.cpp
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(96,36): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(97,38): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(98,37): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(115,33): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+  AdvancedCppProject.vcxproj -> D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe
