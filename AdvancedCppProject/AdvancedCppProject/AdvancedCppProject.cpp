@@ -8,8 +8,6 @@ using namespace std;
 int main()
 {
 
-    int height = 600;
-
     FractalCreator fractalCreator(800, 600);
 
 

@@ -55,5 +55,7 @@ private:
 
 	void writeBitmap(string name);
 
+	int getRange(int iterations) const;
+
 };
 
