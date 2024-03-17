@@ -1,5 +1,6 @@
 #include "FractalCreator.h"
 #include <assert.h>
+#include <iomanip>
 
 FractalCreator::FractalCreator(int width, int height)
 {
@@ -17,10 +18,16 @@ FractalCreator::FractalCreator(int width, int height)
 
 void FractalCreator::calculateIterations()
 {
+    cout << m_width << " : " << m_height << endl;
+
     for (int y = 0; y < m_height; y++)
     {
+        //if (y % 50 == 0) cout << (float)y/m_height*100.0f << "%" << endl;
+
         for (int x = 0; x < m_width; x++)
         {
+            if (x % 100 == 0) cout << std::fixed << std::setprecision(1) << "\r" << ((float)y / m_height + (float)x / m_width / m_height) * 100.0f << "%";// << endl;
+
             auto coords = m_zoomList.doZoom(x, y);
 
             int iterations = Mandelbrot::getIteration(coords.first, coords.second);
@@ -32,6 +39,8 @@ void FractalCreator::calculateIterations()
 
         }
     }
+
+    cout << endl;
 
 }
 
@@ -162,12 +171,19 @@ void FractalCreator::run(string name)
 {
     //addZoom(Zoom(295, m_height - 202, 0.1));
     //addZoom(Zoom(312, m_height - 304, 0.1));
-
+    cout << "Calculate iterations..." << endl;
     calculateIterations();
+
+    cout << "Calculate total iterations..." << endl;
     calculateTotalIterations();
+
+    cout << "Calculate Range totals..." << endl;
     calculateRangeTotals();
+
+    cout << "Draw fractal..." << endl;
     drawFractal();
 
+    cout << "Write bitmap..." << endl;
     writeBitmap(name);
 
 }

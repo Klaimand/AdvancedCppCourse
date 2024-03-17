@@ -1,13 +1,2 @@
 ﻿  AdvancedCppProject.cpp
-  FractalCreator.cpp
-D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(105,36): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(106,38): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(107,37): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\AdvancedCppProject\FractalCreator.cpp(124,33): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-  Mandelbrot.cpp
-  Generating Code...
   AdvancedCppProject.vcxproj -> D:\Documents\Cpp Projects\AdvancedCppRepo\AdvancedCppProject\x64\Debug\AdvancedCppProject.exe

@@ -14,7 +14,7 @@ int Mandelbrot::getIteration(double x, double y)
     {
         z = z * z + c;
 
-        if (abs(z) > 2)
+        if (abs(z) > 2.0)
             break;
 
         iterations++;
