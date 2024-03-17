@@ -32,3 +32,6 @@
 *.app
 
 AdvancedCppProject/.vs/*
+AdvancedCppProject/.idea/*
+AdvancedCppProject/x64/*
+AdvancedCppProject/AdvancedCppProject/x64/*
